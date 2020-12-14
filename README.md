@@ -1,7 +1,7 @@
 # OS_EmbLinuxProject
   - snake_game_project
   - include device drivers of nokia 5110 LCD, buttons
-  - write application to control device
+  - write application to control device drivers (such as: snake game)
 # to build device drivers
   - bash ./setup.sh
 # to build user program
