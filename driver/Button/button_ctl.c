@@ -3,8 +3,6 @@
 ** @This file based on button.c of Derek Molloy and has modified
 ** @to control 4 buttons
 ** @Link: https://github.com/sdwuyawen/BeagleBoneBlack/blob/master/button/button.c
-** @Author: LongVh12@fsoft.com.vn
-** 	    Tungnt58@fsoft.com.vn (Add send signal to userspace functionality)
 */
 
 #include <linux/init.h>
