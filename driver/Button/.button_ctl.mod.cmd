@@ -1,0 +1,1 @@
+cmd_/home/pi/Desktop/OS_EmbLinuxProject/driver/Button/button_ctl.mod := { echo  /home/pi/Desktop/OS_EmbLinuxProject/driver/Button/button_ctl.o; echo; } > /home/pi/Desktop/OS_EmbLinuxProject/driver/Button/button_ctl.mod

@@ -1,0 +1,1 @@
+cmd_/home/pi/Desktop/OS_EmbLinuxProject/driver/Button/button_ctl.ko := ld -r  -EL  --build-id  -T ./scripts/module-common.lds -T ./arch/arm/kernel/module.lds -o /home/pi/Desktop/OS_EmbLinuxProject/driver/Button/button_ctl.ko /home/pi/Desktop/OS_EmbLinuxProject/driver/Button/button_ctl.o /home/pi/Desktop/OS_EmbLinuxProject/driver/Button/button_ctl.mod.o;  true
