@@ -1,4 +1,0 @@
-#build device driver
-bash ./setup.sh
-#build user program
-g++ -o int interface_main.cpp -lpthread  
