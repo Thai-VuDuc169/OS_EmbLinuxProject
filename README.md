@@ -15,3 +15,4 @@
   - GPIO 12,16,20,21 connect to Vcc
 # to build user program
   - g++ -o int interface_main.cpp -lpthread
+  - sudo ./int <run>
