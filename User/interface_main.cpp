@@ -16,19 +16,23 @@
 #define MY_SIGNAL		40
 #define FILENAME		"/dev/buttons"
 
-#define FILENAME_1	"/home/pi/Desktop/Nokia5110LCDriver/user_interface/planet.txt"
-#define FILENAME_2	"/home/pi/Desktop/Nokia5110LCDriver/user_interface/rocket.txt"
-#define FILENAME_3	"/home/pi/Desktop/Nokia5110LCDriver/user_interface/unicorn.txt"
-#define FILENAME_4	"/home/pi/Desktop/Nokia5110LCDriver/user_interface/video.txt"
-
-int button_state = 1;
+#define FILENAME_1	"/home/pi/Desktop/OS_EmbLinuxProject/User/planet.txt"
+#define FILENAME_2	"/home/pi/Desktop/OS_EmbLinuxProject/User/rocket.txt"
+#define FILENAME_3	"/home/pi/Desktop/OS_EmbLinuxProject/User/unicorn.txt"
+#define FILENAME_4	"/home/pi/Desktop/OS_EmbLinuxProject/User/video.txt"
 
 using namespace std;
+
+int button_state = 1;
+/* Declaration and initialization of the mutex variable which will protect the shared global variable `button_state`.*/
+pthread_mutex_t mutexA = PTHREAD_MUTEX_INITIALIZER;
 
 void signal_handle(int n, siginfo_t *info, void* data)
 {
 	printf("jump to sig_handle\n");
+	pthread_mutex_lock (&mutexA);
 	button_state = info->si_int;
+	pthread_mutex_unlock (&mutexA);
 	printf("button_state is %d\n", button_state);
 }
 
@@ -66,22 +70,18 @@ void LCD_CheckInputToBuff()
     if (button_state == 1)
     {
         f_stream.open( FILENAME_1 , std::ifstream::in);
-	cout << "\nf_stream1" << endl;
     }
     if (button_state == 2)
     {
         f_stream.open( FILENAME_2 , std::ifstream::in);
-	cout << "\nf_stream2" << endl;
     }  
     if (button_state == 3)
     {
         f_stream.open( FILENAME_3 , std::ifstream::in);
-	cout << "\nf_stream3" << endl;
     } 
     if (button_state == 4)
     {
         f_stream.open( FILENAME_4 , std::ifstream::in);
-	cout << "\nf_stream4" << endl;
     }
 	if ( f_stream.is_open() && !f_stream.rdstate() )
     {

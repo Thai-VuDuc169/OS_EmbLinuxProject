@@ -1,12 +1,3 @@
-
-/*
-** @This file based on button.c of Derek Molloy and has modified
-** @to control 4 buttons
-** @Link: https://github.com/sdwuyawen/BeagleBoneBlack/blob/master/button/button.c
-** @Author: LongVh12@fsoft.com.vn
-** 	    Tungnt58@fsoft.com.vn (Add send signal to userspace functionality)
-*/
-
 #include <linux/init.h>
 #include <linux/module.h>
 #include <linux/kernel.h>
@@ -25,7 +16,6 @@ MODULE_DESCRIPTION("keyboard for snake ");
 MODULE_VERSION("0.1");
 
 static unsigned int gpioButton[4] = {12, 16, 20 , 21};
-//static unsigned int gpioButton[4] = {67,68,44, 26};
 /* up down left right */
 static unsigned int irqNumber[4];
 
@@ -146,7 +136,6 @@ static void __exit button_exit(void)
 static void send_sig_to_user(int sig_val)
 {
 	struct kernel_siginfo info;
-	//memset(&info, 0 , sizeof(struct siginfo));
 	
 	info.si_signo = MY_SIGNAL;
 	info.si_code = SI_QUEUE;
