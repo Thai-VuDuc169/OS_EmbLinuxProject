@@ -1,17 +1,10 @@
-#include <fcntl.h>
 #include <string.h>
-#include <iostream>
 #include <iosfwd>
-#include <unistd.h>
-#include <stdio.h>
 #include <vector>
 #include <fstream>
 #include <iostream>
 #include <sstream>
-
 #include <pthread.h>
-////{ buttons
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <signal.h>
@@ -38,7 +31,6 @@ void signal_handle(int n, siginfo_t *info, void* data)
 	button_state = info->si_int;
 	printf("button_state is %d\n", button_state);
 }
-////}
 
 #define MAX_STREAM_SIZE 510
 #define MAX_TEXT_SIZE 84
@@ -125,7 +117,6 @@ void LCD_DrawImage()
     clear_buffer(buffer);
     return;
 }
-////{thread
 void *thread_ControlButtons(void* ar)
 {
 	struct sigaction sig;
@@ -146,17 +137,12 @@ void *thread_ControlButtons(void* ar)
 	{};
 	return ar;		
 }
-////}
 
-/*********\
-2D_array: 
-\*********/
 
 int main()
 {
 	pthread_t tid1;
 	pthread_create(&tid1, NULL, thread_ControlButtons, NULL);
-
     for(;;)
     {   
        LCD_CheckInputToBuff();
