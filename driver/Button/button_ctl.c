@@ -11,9 +11,6 @@
 #define MY_SIGNAL		40
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("Longvh12@fsoft.com.vn");
-MODULE_DESCRIPTION("keyboard for snake ");
-MODULE_VERSION("0.1");
 
 static unsigned int gpioButton[4] = {12, 16, 20 , 21};
 /* up down left right */
